@@ -1,0 +1,15 @@
+(library
+ (name core_test)
+ (public_name core_test)
+ (flags :standard -w -unused-functor-parameter)
+ (inline_tests
+  (deps sample_time_zone_file)
+  (flags))
+ (libraries base_test.container_tests core.base_for_tests base_test.helpers
+   core core_test_helpers expect_test_helpers_base expect_test_helpers_core
+   patdiff.expect_test_patdiff expectable core_kernel.fheap
+   sexp_grammar.validation sexplib)
+ (preprocessor_deps src/config.h)
+ (preprocess
+  (pps ppx_bin_and_sexp_digest ppx_jane ppx_quick_test
+    -compare-require-explicit-locality)))
