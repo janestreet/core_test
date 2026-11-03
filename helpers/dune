@@ -1,0 +1,6 @@
+(library
+ (name core_test_helpers)
+ (public_name core_test.helpers)
+ (libraries base_quickcheck expect_test_helpers_base)
+ (preprocess
+  (pps ppx_jane -compare-require-explicit-locality)))
